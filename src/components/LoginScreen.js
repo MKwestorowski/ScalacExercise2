@@ -23,7 +23,7 @@ export default connect(
 
     componentDidMount() {
         fetch(
-            'https://api.github.com/repos/angular/angular'
+            // 'https://api.github.com/repos/angular/angular' this gotta be changed for asyc/await
         ).then(
             response => response.json()
         ).then(
@@ -40,7 +40,6 @@ export default connect(
 
 
         return (
-
             <div className="gitHubButtonWidth flex-container">
                 <a href={`http://github.com/login/oauth/authorize?client_id=9f13dc502b256fcebd4f`}
                    className="flex-item-button btn btn-block btn-sm btn-social btn-github">
@@ -48,6 +47,7 @@ export default connect(
                     Sign in with Github
                 </a>
             </div>
+
 
         )
     }
