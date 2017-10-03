@@ -14,26 +14,25 @@ export default connect(
     }),
     dispatch => ({
         success: data => dispatch({
-            type: 'contributors/FETCH__SUCCESS',
+            type: 'angularData/FETCH__SUCCESS',
             data: data
         })
 
     })
 )(class angularcontributorlist extends React.Component {
 
-    componentDidMount() {
-        async function getRepoList() {
-            try {
-       let response = await fetch('api.github.com/orgs/angular');
-       let list = await response.json();
-       await this.props.success(list)
-            }
-            catch(err) {
-                throw console.log('fetch failed', err);
-            }
+    async componentDidMount() {
+
+        try {
+            let response = await fetch('https://api.github.com/orgs/angular');
+            let got = await response.json();
+            await this.props.success(got)
+
+
         }
-        getRepoList()
-        console.log(this.props.success)
+        catch(err) {
+            throw console.log('fetch failed', err);
+        }
     }
 
 

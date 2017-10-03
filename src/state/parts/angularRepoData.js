@@ -4,4 +4,4 @@
 import createFetchingReducer from './_utils/createFetchingReducer'
 
 
-export default createFetchingReducer('angular')
+export default createFetchingReducer('angularData')

@@ -12,9 +12,14 @@ export default connect(
     state => ({
         angularData: state.angularData
     }),
-    dispatch => ({
+    dispatch =>  ({
+        success: data => dispatch({
+            type: 'angularData/FETCH__SUCCESS',
+            data: data
+        })
 
     })
+
 )(class angularContributors extends React.Component {
 
 
@@ -23,9 +28,18 @@ export default connect(
     //
     // }
 
-    componentDidMount() {
+    async componentWillMount() {
+
+            try {
+                let response = await fetch('https://api.github.com/orgs/angular');
+                let got = await response.json();
+                await this.props.success(got)
 
 
+            }
+            catch(err) {
+                throw console.log('fetch failed', err);
+            }
     }
 
 
@@ -63,59 +77,9 @@ export default connect(
         //         () => contributors
         //     )
         // )()
-        return (
+return (
+    null
 
-
-            {/*<div className="container">*/}
-                {/*<table className="table table-hover">*/}
-                    {/*<thead>*/}
-                    {/*<tr>*/}
-                        {/*<th></th>*/}
-                        {/*<th>*/}
-                            {/*Avatar*/}
-                        {/*</th>*/}
-                        {/*<th onClick={this.handleSortingToggle}>*/}
-                            {/*Count of contributors*/}
-                            {/*{sortingMark}*/}
-                        {/*</th>*/}
-                    {/*<th>*/}
-                        {/*Count of followers*/}
-                    {/*</th>*/}
-                        {/*<th>*/}
-                            {/*Count of public repos*/}
-                        {/*</th>*/}
-                        {/*<th>*/}
-                            {/*Gists*/}
-                        {/*</th>*/}
-                    {/*</tr>*/}
-                    {/*</thead>*/}
-                    {/*{console.log(preparedContributors)}*/}
-                    {/*<tbody>*/}
-                    {/*{*/}
-                        {/*preparedContributors === null ?*/}
-                            {/*'Fetching' :*/}
-                            {/*preparedContributors.map(*/}
-                                {/*eachContributor => (*/}
-                                    {/*<tr key={eachContributor.id}>*/}
-                                        {/*<td><Link to={'/contributeprofile'}*/}
-                                                  {/*onClick={() => contributorProfile(eachContributor)}*/}
-                                                  {/*key={eachContributor.id}>{eachContributor.login}</Link></td>*/}
-                                        {/*<td><img*/}
-                                            {/*src={eachContributor.avatar_url} className="img-thumbnail avatar img-fluid"*/}
-                                            {/*alt=""/></td>*/}
-                                        {/*<td>{eachContributor.contributions}</td>*/}
-                                    {/*</tr>*/}
-                                {/*)*/}
-                            {/*)*/}
-                    {/*}*/}
-                    {/*</tbody>*/}
-                {/*</table>*/}
-            {/*</div>*/}
-
-
-
-
-
-        )
+)
     }
 })
