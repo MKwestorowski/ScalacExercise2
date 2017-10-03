@@ -19,20 +19,21 @@ export default connect(
         })
 
     })
-)(class Singin extends React.Component {
+)(class angularcontributorlist extends React.Component {
 
     componentDidMount() {
         async function getRepoList() {
             try {
-       let response = await fetch('https://api.github.com/repos/angular');
+       let response = await fetch('api.github.com/orgs/angular');
        let list = await response.json();
-       let got = await this.props.success(list)
+       await this.props.success(list)
             }
             catch(err) {
                 throw console.log('fetch failed', err);
             }
         }
         getRepoList()
+        console.log(this.props.success)
     }
 
 

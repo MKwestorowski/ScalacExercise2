@@ -6,7 +6,6 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 import {connect} from 'react-redux'
-import toastr from 'toastr'
 
 
 export default connect(
@@ -34,7 +33,6 @@ export default connect(
 
     componentDidMount() {
 
-        toastr.success('If u want to sort users with count of contributors, You have to click at count contributors title')
 
     }
 
