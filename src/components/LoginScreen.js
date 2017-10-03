@@ -22,19 +22,19 @@ export default connect(
 )(class Singin extends React.Component {
 
     componentDidMount() {
-        fetch(
-            // 'https://api.github.com/repos/angular/angular' this gotta be changed for asyc/await
-        ).then(
-            response => response.json()
-        ).then(
-            data => {
-                this.props.success(data);
-                fetch(data.contributors_url).then(
-                    response => response.json().then(
-                        data => this.props.success(data)))
+        async function getRepoList() {
+            try {
+       let response = await fetch('https://api.github.com/repos/angular');
+       let list = await response.json();
+       let got = await this.props.success(list)
             }
-        )
+            catch(err) {
+                throw console.log('fetch failed', err);
+            }
+        }
+        getRepoList()
     }
+
 
     render() {
 

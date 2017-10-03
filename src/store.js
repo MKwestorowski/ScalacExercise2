@@ -16,4 +16,4 @@ store.subscribe(() => {
 })
 
 
-export default stor
+export default store
