@@ -5,6 +5,8 @@ import React from 'react'
 
 // import {Link} from 'react-router-dom'
 
+import AngularIntroduce from './../components/AngularIntroduce'
+
 import {connect} from 'react-redux'
 
 
@@ -20,7 +22,7 @@ export default connect(
 
     })
 
-)(class angularContributors extends React.Component {
+)(class angularRepoList extends React.Component {
 
     async componentDidMount() {
         try {
@@ -44,6 +46,10 @@ export default connect(
 
     render() {
 
+
+
+
+        const angularData = this.props.angularData.data
 
         console.log(this.props.angularData)
         // const contributors = this.props.contributors.data
@@ -72,7 +78,7 @@ export default connect(
         //     )
         // )()
 return (
-     <AngularIntroduce avatar={this.props.angularData.data.avatar_url}/>
+     <AngularIntroduce angularReposCount={angularData.public_repos}angularAvatar={angularData.avatar_url}/>
 
 )
     }
