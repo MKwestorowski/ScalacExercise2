@@ -22,11 +22,6 @@ export default connect(
 
 )(class angularContributors extends React.Component {
 
-
-    // state = {
-    //     sortingOrder: null,
-    //
-    // }
     async componentDidMount() {
         try {
             let response = await fetch('https://api.github.com/orgs/angular');
@@ -77,7 +72,7 @@ export default connect(
         //     )
         // )()
 return (
-    null
+     <AngularIntroduce avatar={this.props.angularData.data.avatar_url}/>
 
 )
     }

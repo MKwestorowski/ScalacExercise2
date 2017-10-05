@@ -6,7 +6,7 @@ import {
 
 
 import LoginScreen from './LoginScreen'
-import Angularcontributorlist from './AngularRepoList'
+import Angularcontributorlist from './../containers/AngularRepoList'
 import './App.css';
 
 
