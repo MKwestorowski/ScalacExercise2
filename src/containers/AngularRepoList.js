@@ -78,7 +78,11 @@ export default connect(
         //     )
         // )()
 return (
-     <AngularIntroduce angularReposCount={angularData.public_repos}angularAvatar={angularData.avatar_url}/>
+     <AngularIntroduce
+         showContributors={}
+         angularBlog={angularData.blog}
+         angularReposCount={angularData.public_repos}
+         angularAvatar={angularData.avatar_url}/>
 
 )
     }
