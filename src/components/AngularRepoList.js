@@ -27,19 +27,18 @@ export default connect(
     //     sortingOrder: null,
     //
     // }
-
-    async componentWillMount() {
-
-            try {
-                let response = await fetch('https://api.github.com/orgs/angular');
-                let got = await response.json();
-                await this.props.success(got)
+    async componentDidMount() {
+        try {
+            let response = await fetch('https://api.github.com/orgs/angular');
+            let got = await response.json();
+            await this.props.success(got)
 
 
-            }
-            catch(err) {
-                throw console.log('fetch failed', err);
-            }
+        }
+        catch(err) {
+            throw console.log('fetch failed', err);
+        }
+
     }
 
 
