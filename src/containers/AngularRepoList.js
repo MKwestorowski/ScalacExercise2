@@ -12,7 +12,8 @@ import {connect} from 'react-redux'
 
 export default connect(
     state => ({
-        angularData: state.angularData
+        angularData: state.angularData,
+        angularReposList: state.angularReposList
     }),
     dispatch =>  ({
         success: data => dispatch({
@@ -24,62 +25,54 @@ export default connect(
 
 )(class angularRepoList extends React.Component {
 
-    async componentDidMount() {
+    componentDidMount() {
+
+        this.getAngularData()
+
+    }
+
+    async getAngularData() {
         try {
-            let response = await fetch('https://api.github.com/orgs/angular');
-            let got = await response.json();
+            const response = await fetch('https://api.github.com/orgs/angular');
+            const got = await response.json();
             await this.props.success(got)
 
 
         }
+        catch (err) {
+            throw console.log('fetch failed', err);
+        }
+    }
+
+    async angularContributors() {
+        console.log(this.props.angularData.data)
+        try {
+            console.log('here')
+            let response = await fetch(`{this.props.angularData.data.repos_url}`)
+            let got = await response.json();
+            await this.props.success(got)
+            console.log(got)
+        }
         catch(err) {
             throw console.log('fetch failed', err);
         }
-
     }
 
-
-    // handleSortingToggle = () => this.setState({
-    //     sortingOrder: [null, 'ASC'].includes(this.state.sortingOrder) ? 'DESC' : 'ASC'
-    // })
 
 
     render() {
 
 
-
+        const angularContributors = this.angularContributors
 
         const angularData = this.props.angularData.data
 
         console.log(this.props.angularData)
-        // const contributors = this.props.contributors.data
-        // const contributorProfile = this.props.contributorProfile
-        //
-        // const sortingMarks = {
-        //     'DESC': <span>&#8595;</span>,
-        //     'ASC': <span>&#8593;</span>
-        // }
-        // const sortingMark = sortingMarks[this.state.sortingOrder] || null
-        //
-        // const contributorsVariants = {
-        //     'DESC': () => contributors.slice().sort(
-        //         (a, b) => b.contributions - a.contributions
-        //     ),
-        //     'ASC': () => contributors.slice().sort(
-        //         (a, b) => a.contributions - b.contributions
-        //     )
-        // }
-        //
-        //
-        // const preparedContributors = (
-        //     contributorsVariants[this.state.sortingOrder] ||
-        //     (
-        //         () => contributors
-        //     )
-        // )()
+        console.log(angularContributors)
+
 return (
      <AngularIntroduce
-         showContributors={}
+         showContributors={angularContributors}
          angularBlog={angularData.blog}
          angularReposCount={angularData.public_repos}
          angularAvatar={angularData.avatar_url}/>
