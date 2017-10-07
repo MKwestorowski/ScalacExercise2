@@ -46,6 +46,18 @@ export default connect(
         }
     }
 
+    async getAngularContributors() {
+        try {
+            const response = await fetch('https://api.github.com/orgs/angular');
+            const got = await response.json();
+            await this.props.success(got)
+            console.log(this.props.success)
+        }
+        catch (err) {
+            throw console.log('fetch failed', err);
+        }
+    }
+
 
 
 
@@ -53,7 +65,7 @@ export default connect(
     render() {
 
 
-        const angularContributors = this.angularContributors
+        const angularContributors = this.getAngularContributors§
         const angularData = this.props.angularData.data
 
         console.log(this.props.angularData)
