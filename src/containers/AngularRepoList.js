@@ -5,7 +5,7 @@ import React from 'react'
 
 // import {Link} from 'react-router-dom'
 
-import AngularIntroduce from './../components/AngularIntroduce'
+import {AngularIntroduce} from './../components/AngularIntroduce'
 
 import {connect} from 'react-redux'
 
@@ -65,7 +65,7 @@ export default connect(
     render() {
 
 
-        const angularContributors = this.getAngularContributors§
+        const angularContributors = this.getAngularContributors
         const angularData = this.props.angularData.data
 
         console.log(this.props.angularData)
