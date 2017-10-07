@@ -71,7 +71,7 @@ export default connect(
 
 
         const angularContributors = this.getAngularContributors
-        const angularData = this.props.angularData.datao
+        const angularData = this.props.angularData.data
         console.log(this.props.angularData)
         console.log(angularContributors)
 
