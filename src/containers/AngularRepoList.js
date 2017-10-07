@@ -26,12 +26,17 @@ export default connect(
 )(class angularRepoList extends React.Component {
 
 
+    constructor(props) {
+        super(props)
+        this.getAngularData = this.getAngularData.bind(this);
+        this.getAngularContributors = this.getAngularContributors.bind(this);
+    }
+
+
 
     componentDidMount() {
 
         this.getAngularData()
-
-
     }
 
     async getAngularData() {
@@ -66,8 +71,7 @@ export default connect(
 
 
         const angularContributors = this.getAngularContributors
-        const angularData = this.props.angularData.data
-
+        const angularData = this.props.angularData.datao
         console.log(this.props.angularData)
         console.log(angularContributors)
 

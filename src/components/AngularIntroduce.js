@@ -2,12 +2,6 @@ import React from 'react'
 
 
 
-const HandleClick = (props) => {
-    return (
-        <h2 onClick={ () => props.angularContributors}>Take a look at their contributors!</h2>
-    )
-
-}
 
 export const AngularIntroduce = (props) =>{
     return (
@@ -16,7 +10,7 @@ export const AngularIntroduce = (props) =>{
                <img src={props.angularAvatar} alt=""/>
 <h1>Count of Repositories {props.angularReposCount}</h1>
                <h1><a href={props.angularBlog}>Look at their BLOG, there is a lot of interting materials!</a></h1>
-               <HandleClick/>
+               <h2 onClick={props.showContributors}>Take a look at their contributors!</h2>
            </header>
         </div>
 
