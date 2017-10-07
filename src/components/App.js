@@ -5,8 +5,8 @@ import {
 } from 'react-router-dom'
 
 
-import LoginScreen from './LoginScreen'
-import Angularcontributorlist from './../containers/AngularRepoList'
+import {LoginScreen} from './LoginScreen'
+import AngularContributorList from './../containers/AngularRepoList'
 import './App.css';
 
 
@@ -14,11 +14,9 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-
-
                 <div className="white">
                     <Route exact path="/" component={LoginScreen}/>
-                    <Route path="/angularcontributorlist" component={Angularcontributorlist}/>
+                    <Route path="/angularcontributorlist" component={AngularContributorList}/>
                 </div>
 
             </Router>

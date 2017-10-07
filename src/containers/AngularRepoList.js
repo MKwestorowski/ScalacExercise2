@@ -25,9 +25,12 @@ export default connect(
 
 )(class angularRepoList extends React.Component {
 
+
+
     componentDidMount() {
 
         this.getAngularData()
+
 
     }
 
@@ -36,27 +39,14 @@ export default connect(
             const response = await fetch('https://api.github.com/orgs/angular');
             const got = await response.json();
             await this.props.success(got)
-
-
+            console.log(this.props.success)
         }
         catch (err) {
             throw console.log('fetch failed', err);
         }
     }
 
-    async angularContributors() {
-        console.log(this.props.angularData.data)
-        try {
-            console.log('here')
-            let response = await fetch(`{this.props.angularData.data.repos_url}`)
-            let got = await response.json();
-            await this.props.success(got)
-            console.log(got)
-        }
-        catch(err) {
-            throw console.log('fetch failed', err);
-        }
-    }
+
 
 
 
@@ -64,7 +54,6 @@ export default connect(
 
 
         const angularContributors = this.angularContributors
-
         const angularData = this.props.angularData.data
 
         console.log(this.props.angularData)
