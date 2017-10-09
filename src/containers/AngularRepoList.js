@@ -15,18 +15,19 @@ export default connect(
         angularData: state.angularData,
         angularReposList: state.angularReposList
     }),
-    dispatch =>  ({
+    dispatch => ({
         success: data => dispatch({
             type: 'angularData/FETCH__SUCCESS',
+            data: data,
+        }),
+
+        successRepos: data => dispatch({
+            type: 'angularRepoList/FETCH_SUCCESS',
             data: data
-        })
+        }),
 
     })
-
 )(class angularRepoList extends React.Component {
-
-
-
 
 
     componentDidMount() {
@@ -51,16 +52,13 @@ export default connect(
             const response = await fetch(this.props.angularData.data.repos_url);
             const got = await response.json();
             await this.props.success(got)
-            console.log(this.props.success)
+            console.log(this.props.successRepos)
             console.log(got)
         }
         catch (err) {
             throw console.log('fetch failed', err);
         }
     }
-
-
-
 
 
     render() {
@@ -71,13 +69,13 @@ export default connect(
         console.log(this.props.angularData)
         console.log(angularContributors)
 
-return (
-     <AngularIntroduce
-         showContributors={angularContributors}
-         angularBlog={angularData.blog}
-         angularReposCount={angularData.public_repos}
-         angularAvatar={angularData.avatar_url}/>
+        return (
+            <AngularIntroduce
+                showContributors={angularContributors}
+                angularBlog={angularData.blog}
+                angularReposCount={angularData.public_repos}
+                angularAvatar={angularData.avatar_url}/>
 
-)
+        )
     }
 })
