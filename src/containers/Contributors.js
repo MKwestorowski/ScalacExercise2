@@ -1,10 +1,8 @@
 /**
- * Created by MKwestorowski on 30/09/2017.
+ * Created by MKwestorowski on 09/10/2017.
  */
+
 import React from 'react'
-
-// import {Link} from 'react-router-dom'
-
 import {AngularIntroduce} from './../components/AngularIntroduce'
 
 import {connect} from 'react-redux'
@@ -48,6 +46,7 @@ export default connect(
 
     getAngularContributors = async () => {
         try {
+            const prepare = await this.props.reposList.map(e => fetch(e.contriburors))
             const response = await fetch(this.props.angularData.data.repos_url);
             const got = await response.json();
             await this.props.success(got)
@@ -71,13 +70,13 @@ export default connect(
         console.log(this.props.angularData)
         console.log(angularContributors)
 
-return (
-     <AngularIntroduce
-         showContributors={angularContributors}
-         angularBlog={angularData.blog}
-         angularReposCount={angularData.public_repos}
-         angularAvatar={angularData.avatar_url}/>
+        return (
+            <AngularIntroduce
+                showContributors={angularContributors}
+                angularBlog={angularData.blog}
+                angularReposCount={angularData.public_repos}
+                angularAvatar={angularData.avatar_url}/>
 
-)
+        )
     }
 })
