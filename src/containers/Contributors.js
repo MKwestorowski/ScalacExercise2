@@ -28,14 +28,17 @@ export default connect(
         this.fetchContributors()
     }
 
-
+   wait = (ms) => {
+        new Promise(r => setTimeout(r, ms))
+       console.log(Promise)
+}
 
     fetchContributors = async () => {
         try {
+            await this.wait(1000)
             console.log(this.props.angularReposList)
              const response = await fetch(this.props.angularReposList)
              const result = await response.json()
-            await console.log(result)
         }
         catch(err) {
             throw console.log('Fetching failed', err)
