@@ -51,7 +51,7 @@ export default connect(
         try {
             const response = await fetch(this.props.angularData.data.repos_url);
             const got = await response.json();
-            await this.props.success(got)
+            await this.props.successRepos(got)
             console.log(this.props.successRepos)
             console.log(got)
         }
