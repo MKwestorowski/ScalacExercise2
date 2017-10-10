@@ -6,7 +6,8 @@ import {
 
 
 import {LoginScreen} from './LoginScreen'
-import AngularContributorList from './../containers/AngularRepoList'
+import angularRepoList from './../containers/AngularRepoList'
+import ContributorsList from './../containers/Contributors'
 import './App.css';
 
 
@@ -16,7 +17,8 @@ class App extends React.Component {
             <Router>
                 <div className="white">
                     <Route exact path="/" component={LoginScreen}/>
-                    <Route path="/angularcontributorlist" component={AngularContributorList}/>
+                    <Route path="/angularcontributorlist" component={angularRepoList}/>
+                    <Route path="/contributoslist" component={ContributorsList}/>
                 </div>
 
             </Router>

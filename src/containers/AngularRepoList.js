@@ -40,7 +40,6 @@ export default connect(
             const response = await fetch('https://api.github.com/orgs/angular');
             const got = await response.json();
             await this.props.success(got)
-            console.log(this.props.success)
         }
         catch (err) {
             throw console.log('fetch failed', err);
@@ -52,7 +51,6 @@ export default connect(
             const response = await fetch(this.props.angularData.data.repos_url);
             const got = await response.json();
             await this.props.successRepos(got)
-            console.log(this.props.successRepos)
             console.log(got)
         }
         catch (err) {

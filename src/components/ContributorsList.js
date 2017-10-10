@@ -3,7 +3,7 @@
  */
 import React from 'react'
 
-export const Contributors = () => {
+export const ContributorsList = () => {
     return (
 
         <div>

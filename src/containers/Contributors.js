@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import {ContributorsList} from './../components/ContributorsList'
+import { ContributorsList } from './../components/ContributorsList'
 
 import {connect} from 'react-redux'
 
@@ -20,13 +20,26 @@ export default connect(
 
     })
 
-)(class angularRepoList extends React.Component {
+)(class contributorList extends React.Component {
 
 
 
-    comonentDidMount() {
-        console.log(this.props.angularReposList)
+    componentDidMount() {
+        this.fetchContributors()
+    }
 
+
+
+    fetchContributors = async () => {
+        try {
+            console.log(this.props.angularReposList)
+             const response = await fetch(this.props.angularReposList)
+             const result = await response.json()
+            await console.log(result)
+        }
+        catch(err) {
+            throw console.log('Fetching failed', err)
+        }
     }
 
 
@@ -34,14 +47,13 @@ export default connect(
 
     render() {
 
+        // contributorList = this.props.angularReposList
 
 
         return (
-            <ContributorList
-                showContributors={}
-                angularBlog={}
-                angularReposCount={}
-                angularAvatar={}/>
+            <ContributorsList
+                // contributorList={contributorList}
+                />
 
         )
     }
