@@ -5,6 +5,7 @@ import React from 'react'
 
 // import {Link} from 'react-router-dom'
 
+
 import {AngularIntroduce} from './../components/AngularIntroduce'
 
 import {connect} from 'react-redux'
@@ -30,6 +31,7 @@ export default connect(
 )(class angularRepoList extends React.Component {
 
 
+
     componentDidMount() {
 
         this.getAngularData()
@@ -46,12 +48,13 @@ export default connect(
         }
     }
 
+
     getAngularContributors = async () => {
         try {
             const response = await fetch(this.props.angularData.data.repos_url);
             const got = await response.json();
-            await this.props.successRepos(got).then()
-            console.log(got)
+            await this.props.successRepos(got)
+            await this.props.history.push("/contributorslist")
         }
         catch (err) {
             throw console.log('fetch failed', err);
