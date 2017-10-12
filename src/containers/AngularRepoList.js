@@ -26,7 +26,6 @@ export default connect(
 )(class angularRepoList extends React.Component {
 
 
-
     componentDidMount() {
 
         this.getAngularData()
@@ -44,12 +43,17 @@ export default connect(
     }
 
 
+
+
     getAngularContributors = async () => {
         try {
+
+            console.log()
             const response = await fetch(this.props.angularData.data.repos_url);
-            const got = await response.json();
+            const got = await response.json()
             await this.props.successRepos(got)
-            await this.props.history.push("/contributorslist")
+            await this.props.history.push('/gowno')
+            await console.log(got)
         }
         catch (err) {
             throw console.log('fetch failed', err);
