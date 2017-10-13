@@ -10,7 +10,7 @@ import {connect} from 'react-redux'
 
 export default connect(
     state => ({
-        angularReposList: state.angularReposList
+        angularRepoList: state.angularRepoList
     }),
     dispatch =>  ({
         success: data => dispatch({
@@ -37,12 +37,15 @@ export default connect(
 
     fetchContributors = async () => {
         try {
-            await this.wait(1000)
-            console.log(this.wait)
-            console.log(this.props.angularReposList)
-             const response = await fetch(this.props.angularReposList)
+            const array = []
+            console.log(typeof this.props.angularRepoList)
+            this.props.angularReposList.map(
+                e => fetch(e.repos_url).then(
+                    response => array.push(response)))
+             await console.log(this.props.angularRepoList)
+             const response = await fetch(this.props.angularRepoList)
              const result = await response.json()
-            console.log(result)
+            await console.log(array)
         }
         catch(err) {
             throw console.log('Fetching failed', err)

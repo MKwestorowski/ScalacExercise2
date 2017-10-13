@@ -9,7 +9,7 @@ import {connect} from 'react-redux'
 export default connect(
     state => ({
         angularData: state.angularData,
-        angularReposList: state.angularReposList
+        angularRepoList: state.angularRepoList
     }),
     dispatch => ({
         success: data => dispatch({
@@ -29,7 +29,6 @@ export default connect(
     componentDidMount() {
 
         this.getAngularData()
-        this.getAngularContributors()
     }
 
     getAngularData = async () => {
@@ -49,7 +48,7 @@ export default connect(
             const response = await fetch(this.props.angularData.data.repos_url);
             const got = await response.json()
             await this.props.successRepo(got)
-            await this.props.history.push('/gowno')
+            await this.props.history.push('/contributorlist')
         }
         catch (err) {
             throw console.log('fetch failed', err);
