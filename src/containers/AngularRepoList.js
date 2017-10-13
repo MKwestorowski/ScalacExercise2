@@ -47,13 +47,10 @@ export default connect(
 
     getAngularContributors = async () => {
         try {
-
-            console.log()
             const response = await fetch(this.props.angularData.data.repos_url);
             const got = await response.json()
             await this.props.successRepos(got)
             await this.props.history.push('/gowno')
-            await console.log(got)
         }
         catch (err) {
             throw console.log('fetch failed', err);
@@ -66,9 +63,6 @@ export default connect(
 
         const angularContributors = this.getAngularContributors
         const angularData = this.props.angularData.data
-        console.log(this.props.angularData)
-        console.log(angularContributors)
-
         return (
             <AngularIntroduce
                 showContributors={angularContributors}
