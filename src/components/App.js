@@ -18,7 +18,7 @@ class App extends React.Component {
                 <div className="white">
                     <Route exact path="/" component={LoginScreen}/>
                     <Route path="/angularcontributorlist" component={angularRepoList}/>
-                    <Route path="/contributoslist" component={ContributorsList}/>
+                    <Route path="/contributorlist" component={ContributorsList}/>
                 </div>
 
             </Router>

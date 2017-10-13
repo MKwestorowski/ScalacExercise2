@@ -1,6 +1,3 @@
-/**
- * Created by MKwestorowski on 03/10/2017.
- */
 export default prefix => {
     const initialState = {
         data: null,

@@ -17,8 +17,8 @@ export default connect(
             data: data,
         }),
 
-        successRepos: data => dispatch({
-            type: 'angularRepoList/FETCH_SUCCESS',
+        successRepo: data => dispatch({
+            type: 'angularRepoList/FETCH__SUCCESS',
             data: data
         }),
 
@@ -29,6 +29,7 @@ export default connect(
     componentDidMount() {
 
         this.getAngularData()
+        this.getAngularContributors()
     }
 
     getAngularData = async () => {
@@ -43,13 +44,11 @@ export default connect(
     }
 
 
-
-
     getAngularContributors = async () => {
         try {
             const response = await fetch(this.props.angularData.data.repos_url);
             const got = await response.json()
-            await this.props.successRepos(got)
+            await this.props.successRepo(got)
             await this.props.history.push('/gowno')
         }
         catch (err) {
