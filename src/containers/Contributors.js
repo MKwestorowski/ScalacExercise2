@@ -39,7 +39,7 @@ export default connect(
         try {
              await console.log(this.props.angularRepoList)
              const response = await this.props.angularRepoList.data.map(e => fetch(e.contributors_url))
-             await console.log(response)
+             await console.log(response.map(e => e.then(r => r.json())), 'japko')
         }
         catch(err) {
             throw console.log('Fetching failed', err)
