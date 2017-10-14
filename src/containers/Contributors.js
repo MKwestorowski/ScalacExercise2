@@ -37,12 +37,9 @@ export default connect(
 
     fetchContributors = async () => {
         try {
-            const array = []
-            console.log(this.props.angularRepoList.data.map(e => fetch(e.contributors_url)))
              await console.log(this.props.angularRepoList)
-             const response = await fetch(this.props.angularRepoList)
-             const result = await response.json()
-            await console.log(array)
+             const response = await this.props.angularRepoList.data.map(e => fetch(e.contributors_url))
+             await console.log(response)
         }
         catch(err) {
             throw console.log('Fetching failed', err)
