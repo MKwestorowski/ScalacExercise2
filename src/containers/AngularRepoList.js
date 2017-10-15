@@ -61,13 +61,14 @@ export default connect(
 
         const angularContributors = this.getAngularContributors
         const angularData = this.props.angularData.data
-        console.log(angularData)
         return (
-            <AngularIntroduce
+
+            angularData === null ? null : <AngularIntroduce
                 showContributors={angularContributors}
                 angularBlog={angularData.blog}
                 angularReposCount={angularData.public_repos}
                 angularAvatar={angularData.avatar_url}/>
+
 
         )
     }
