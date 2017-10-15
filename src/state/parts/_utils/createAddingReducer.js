@@ -5,10 +5,10 @@ export default add_item => {
 
     return (state = initialState, action) => {
         switch (action.type) {
-            case `ADD_ITEM`:
+            case 'ADD__ITEM':
                 return {
                     ...state,
-                    data: null
+                    data: [...state.data, action.addItem]
                 }
             default:
                 return state

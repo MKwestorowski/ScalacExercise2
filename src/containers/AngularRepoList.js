@@ -61,6 +61,7 @@ export default connect(
 
         const angularContributors = this.getAngularContributors
         const angularData = this.props.angularData.data
+        console.log(angularData)
         return (
             <AngularIntroduce
                 showContributors={angularContributors}

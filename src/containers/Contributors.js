@@ -11,7 +11,7 @@ export default connect(
     }),
     dispatch =>  ({
         successContData: data => dispatch({
-            type: 'contributorData/ADD__ITEM',
+            type: 'ADD__ITEM',
             data: data
         })
 
