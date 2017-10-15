@@ -1,4 +1,3 @@
-import createFetchingReducer from './_utils/createFetchingReducer'
+import createAddingReducer from './_utils/createAddingReducer'
 
-export default createFetchingReducer('contributorData')
-
+export default createAddingReducer('contributorData')
