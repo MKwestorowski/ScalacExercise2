@@ -4,11 +4,12 @@ export default add_item => {
     }
 
     return (state = initialState, action) => {
+        console.log(action)
         switch (action.type) {
             case 'ADD__ITEM':
                 return {
                     ...state,
-                    data: [...state.data, action.addItem]
+                    data: [...state.data, action.data]
                 }
             default:
                 return state
