@@ -13,7 +13,11 @@ export default connect(
         successContData: data => dispatch({
             type: 'ADD__ITEM',
             data: data
-        })
+        }),
+
+        clearContributors: data => dispatch({
+                type: 'CLEAR__STORE',
+            })
 
     })
 
@@ -21,9 +25,10 @@ export default connect(
 
 
 
-    componentDidMount() {
-        this.fetchContributors()
-        console.log(this.props.contributorData)
+     async componentDidMount() {
+       await this.props.clearContributors()
+        await this.fetchContributors()
+
     }
 
     fetchContributors = async () => {

@@ -6,6 +6,11 @@ export default add_item => {
     return (state = initialState, action) => {
         console.log(action)
         switch (action.type) {
+            case 'CLEAR__STORE':
+                return {
+                    ...state,
+                    data: undefined
+                }
             case 'ADD__ITEM':
                 return {
                     ...state,
