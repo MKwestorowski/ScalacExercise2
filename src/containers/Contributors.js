@@ -48,12 +48,13 @@ export default connect(
 
     render() {
 
-        // contributorList = this.props.angularReposList
+
+        contributorList = this.props.contributorData
 
 
         return (
             <ContributorsList
-                // contributorList={contributorList}
+                contributorList={contributorList}
                 />
 
         )
