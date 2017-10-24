@@ -9,7 +9,7 @@ export default add_item => {
             case 'CLEAR__STORE':
                 return {
                     ...state,
-                    data: undefined
+                    data: []
                 }
             case 'ADD__ITEM':
                 return {
