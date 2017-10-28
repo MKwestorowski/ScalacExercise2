@@ -3,10 +3,11 @@
  */
 import React from 'react'
 
-export const ContributorsList = () => {
+export const ContributorsList = (props) => {
     return (
 
         <div>
+        <p> {props.contributorList}</p>
 
         </div>
 
