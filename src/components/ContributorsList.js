@@ -7,7 +7,8 @@ export const ContributorsList = (props) => {
     return (
 
         <div>
-        <p> {props.contributorList}</p>
+            {console.log(props.contributorList.data)}
+        {props.contributorList.data.map(e => e.map(r => <p key={r.id}> {r.login}</p>))}
 
         </div>
 
