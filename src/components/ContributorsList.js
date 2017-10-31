@@ -8,8 +8,8 @@ export const ContributorsList = (props) => {
 
         <div>
             {console.log(props.contributorList.data)}
-        {props.contributorList.data.map(e => e.map(r => <p key={r.id}> {r.login}</p>))}
-        {console.log('need to change names that includes former names')}
+            {props.contributorList.data.map(e => e.map(r => <p key={r.id}> {r.login}</p>))}
+            {console.log('need to change names that includes former names')}
 
         </div>
 
