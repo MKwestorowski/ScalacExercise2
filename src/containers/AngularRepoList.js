@@ -1,6 +1,3 @@
-/**
- * Created by MKwestorowski on 30/09/2017.
- */
 import React from 'react'
 import {AngularIntroduce} from './../components/AngularIntroduce'
 import {connect} from 'react-redux'
