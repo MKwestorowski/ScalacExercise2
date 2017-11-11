@@ -7,9 +7,10 @@ export const ContributorsList = (props) => {
     return (
 
         <div>
-            {console.log(props.contributorList.data)}
-            {props.contributorList.data.map(e => e.map(r => <p key={r.id}> {r.login}</p>))}
-            {console.log('need to change names that includes former names')}
+            {/*{console.log(props.contributorList.data)}*/}
+            {/*{props.contributorList.data.map(e => console.log(e))}*/}
+
+            {/*{console.log('need to change names that includes former names')}*/}
 
         </div>
 

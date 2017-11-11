@@ -45,6 +45,7 @@ export default connect(
     render() {
 
 
+        let prepareContributors = this.props.contributorData.data.map(e => console.log(e))
         contributorList = this.props.contributorData
 
 
